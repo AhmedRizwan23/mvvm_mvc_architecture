@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mvvm_mvc_architecture/resources/assets/images_assets.dart';
+
+import 'package:mvvm_mvc_architecture/resources/components/internet_exception.dart';
+import 'package:mvvm_mvc_architecture/resources/components/round_button.dart';
 
 import 'package:mvvm_mvc_architecture/utils/utils.dart';
 
@@ -14,13 +16,14 @@ class Splashscreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Image.asset(Imageassets.spidey),
-          Image.asset(Imageassets.window)
+          const Internetexceptionwidget(),
+          const SizedBox(height: 10),
+          Roundbuttoncustom(onpresss: () {}, title: "Click")
         ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Utils.snackbar("Hello", "This is from util class");
+          Utils.snackbar();
         },
       ),
     );
