@@ -28,7 +28,7 @@ class Loginviewmodel extends GetxController {
         Utils.showsnack("Login", value["error"]);
       } else {
         userpreference.saveuser(Usermodel.fromJson(value)).then((value) {
-          Get.to(Routename.homescreen);
+          Get.toNamed(Routename.homescreen);
         });
         Utils.showsnack("Login", "Login sucessfull");
       }

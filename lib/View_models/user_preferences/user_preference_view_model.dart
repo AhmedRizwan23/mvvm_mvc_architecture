@@ -11,7 +11,7 @@ class Userpreference {
 
   Future<Usermodel> getuser() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
-    String? token = sp.get("token").toString();
+    Object? token = sp.get("token");
     return Usermodel(token: token.toString());
   }
 

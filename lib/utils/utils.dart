@@ -19,7 +19,7 @@ class Utils {
   }
 
   static showsnack(String message, title) {
-    Get.snackbar(title, message);
+    Get.snackbar(title, message, snackPosition: SnackPosition.BOTTOM);
   }
 
   static imagesnackbar() {
