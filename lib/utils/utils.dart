@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart';
 import 'package:mvvm_mvc_architecture/resources/appcolor/colors.dart';
 import 'package:mvvm_mvc_architecture/resources/assets/images_assets.dart';
 
@@ -19,7 +18,11 @@ class Utils {
         backgroundColor: Appcolor.blackcolor);
   }
 
-  static snackbar() {
+  static showsnack(String message, title) {
+    Get.snackbar(title, message);
+  }
+
+  static imagesnackbar() {
     Get.dialog(GestureDetector(
       onTap: () {
         Get.back();

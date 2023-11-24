@@ -20,6 +20,7 @@ class Networkapiservice extends Baseapiservice {
     } on TimeoutException {
       throw RequestTimeoutException(requestimeout: "Request time out");
     }
+    print(responsejson);
     return responsejson;
   }
 
@@ -28,7 +29,7 @@ class Networkapiservice extends Baseapiservice {
     dynamic responsejson;
     try {
       final response = await http
-          .post(Uri.parse(url), body: jsonEncode(data))
+          .post(Uri.parse(url), body: data)
           .timeout(const Duration(seconds: 10));
 
       responsejson = returnresponse(response);
@@ -41,15 +42,18 @@ class Networkapiservice extends Baseapiservice {
   }
 
   dynamic returnresponse(http.Response response) {
+    print(response.body.toString());
     switch (response.statusCode) {
       case 200:
         dynamic jsonresponse = jsonDecode(response.body);
         return jsonresponse;
       case 400:
-        throw const HttpException("invalid url");
+        dynamic jsonresponse = jsonDecode(response.body);
+        return jsonresponse;
+
       default:
-        throw HttpException(
-            "exception occur status code is ${response.statusCode}");
+        throw Exception(
+            "Error occur while communicaiong with server ${response.statusCode}");
     }
   }
 }
