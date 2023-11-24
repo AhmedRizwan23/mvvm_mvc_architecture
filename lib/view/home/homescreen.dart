@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mvvm_mvc_architecture/View_models/user_preferences/user_preference_view_model.dart';
 import 'package:mvvm_mvc_architecture/resources/routes/routes_name.dart';
-import 'package:mvvm_mvc_architecture/view/login/login_view.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});

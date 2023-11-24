@@ -8,7 +8,7 @@ class Splashservices {
   void islogin() {
     Userpreference().getuser().then((value) {
       print(value.token);
-      if (value.token == null) {
+      if (value.token!.isEmpty || value.token.toString() == "null") {
         Get.toNamed(Routename.loginview);
       } else {
         Get.toNamed(Routename.homescreen);
